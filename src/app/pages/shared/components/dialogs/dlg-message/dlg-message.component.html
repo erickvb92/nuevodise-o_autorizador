@@ -1,0 +1,24 @@
+<div class="wrap-title d-flex justify-content-center mb-4">
+  <img src="assets/iconos/flamaroja.png" alt="logo- santander"  class="logo-stndr" mat-dialog-title/>
+</div>
+
+<mat-dialog-content class="spinner-wrapper mb-4 d-flex align-items-center flex-column">
+  <div class="icon mb-3">
+    <svg-icon *ngIf="!data.isError"
+      src="../assets/iconos/success.svg"  viewBox="0 0 50 50">
+    </svg-icon>
+    <svg-icon *ngIf="data.isError"
+      src="../assets/iconos/error.svg"  viewBox="0 0 50 50">
+    </svg-icon>
+  </div>
+  <p class="text-center" > {{data.header}} </p>
+</mat-dialog-content>
+
+<mat-dialog-actions *ngIf="!data?.confirm" class="justify-content-center">
+  <button mat-dialog-close="" mat-stroked-button color="basic">Cerrar</button>
+</mat-dialog-actions>
+
+<mat-dialog-actions *ngIf="data?.confirm" class="justify-content-around">
+  <button mat-dialog-close="" mat-stroked-button color="basic">Cancelar</button>
+  <button [mat-dialog-close]="true" mat-raised-button color="primary">Confirmar</button>
+</mat-dialog-actions>

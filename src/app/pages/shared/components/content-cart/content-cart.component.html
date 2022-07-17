@@ -1,0 +1,65 @@
+<div class="wrap-cart">
+  <p class="mb-4 text-center title">Constancias Fiscales Agregadas</p>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <mat-form-field class="form-field" appearance="fill">
+        <mat-label>Búsqueda</mat-label>
+        <input
+          matInput
+          type="search"
+          aria-label="searchField"
+          [formControl]="searchField"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="cart-list mb-3" *ngIf="constancyList.length > 0; else noList">
+    <ul>
+      <li class="mb-3 pb-3" *ngFor="let constancia of constancyList; let i = index">
+        <div class="row d-flex align-items-center">
+          <div class="col-9">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <span>Folio</span>
+                <p>{{constancia?.folio}}</p>
+              </div>
+              <div class="col-12 col-md-6">
+                <span>Estatus</span>
+                <p>{{constancia?.estatus}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 d-flex align-items-center justify-content-end">
+            <button mat-icon-button color="primary" (click)="processItemStorage(i, constancia)" *ngIf="action === 'modificada'">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="primary" (click)="processItemStorage(i, constancia)" *ngIf="action === 'cancelada'">
+              <mat-icon>phonelink_erase</mat-icon>
+            </button>
+            <button mat-icon-button color="basic"  (click)="deleteItemStorage(constancia.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="row"  *ngIf="constancyList.length > 0">
+    <div class="col-12 wrap-total">
+      <p>{{constancyList.length}} constancia(s) en lista</p>
+    </div>
+  </div>
+  <div class="row"  *ngIf="constancyList.length > 0">
+    <div class="col-12 wrap-buttons d-flex justify-content-end">
+      <button type="button" color="primary" mat-stroked-button (click)="deleteList()">Vacíar la bandeja</button>
+      <button type="button" color="primary" mat-raised-button  (click)="processList()">Procesar</button>
+    </div>
+  </div>
+
+  <ng-template #noList>
+    <div class="message mt-3">
+      <mat-icon class="mb-2">announcement</mat-icon>
+      <p>No se han agregado constancias a la lista.</p>
+    </div>
+  </ng-template>
+</div>

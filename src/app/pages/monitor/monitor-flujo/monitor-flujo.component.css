@@ -1,0 +1,51 @@
+.main-container {
+    padding: 1.5rem 2rem;
+ }
+ 
+ ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: .5375em 0 !important;
+ }
+ 
+ .wrap-button, .wrap-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+ }
+ 
+ .wrap-buttons button:not(:first-child) {
+    margin-left: 1rem !important;
+ }
+
+ mat-form-field {
+    width: 100%;
+  }
+
+  mat-flat-button{
+    min-height: 24px;
+    font-size: medium;
+    color:  rgb(0, 0, 0);
+}
+
+  label {
+    min-height: 24px;
+    font-size: medium;
+    font-weight: bold;
+}
+
+.espacio {
+   
+    padding: 13px;
+  }
+
+  .my-class{
+    width: 100px!important;
+    min-width: unset!important;
+}
+
+input {
+    text-align: start;
+}
+
+ mat-label {
+    color: rgb(255, 0, 0);
+  }

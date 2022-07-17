@@ -1,0 +1,27 @@
+<div #menuprincipal [hidden]="!mapMenu.get('dsp')">
+    <app-menu-dsp [cargainicial]="modulo"></app-menu-dsp>
+</div>
+
+<div #menuAdmin [hidden]="!mapMenu.get('adm')">
+    <app-menu-adm [cargainicial]="modulo"></app-menu-adm>
+</div>
+
+<div #menuDat [hidden]="!mapMenu.get('dat')">
+    <app-menu-dat></app-menu-dat>
+</div>
+
+<div #menuMonitor [hidden]="!mapMenu.get('mon')">
+    <app-menu-monitor></app-menu-monitor>
+</div>
+
+<div #menuSat [hidden]="!mapMenu.get('sat')">
+    <app-menu-sat></app-menu-sat>
+</div>
+
+<div #menuTto [hidden]="!mapMenu.get('tto')">
+    <app-menu-tratamiento></app-menu-tratamiento>
+</div>
+
+<div #menuMtto [hidden]="!mapMenu.get('mtto')">
+    <app-menu-mantenimiento></app-menu-mantenimiento>
+</div>

@@ -1,0 +1,13 @@
+.input-file {
+    display: none;
+}
+
+button { 
+    width: auto;
+} 
+
+.spinner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

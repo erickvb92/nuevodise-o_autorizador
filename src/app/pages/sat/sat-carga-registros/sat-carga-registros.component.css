@@ -1,0 +1,92 @@
+.container {
+    padding: 50px 20px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  td, th {
+    text-align: center !important;
+    vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+    justify-content: center !important;
+}
+
+.mat-row:nth-child(even){
+    background-color: rgb(219, 219, 219);
+}
+        
+.mat-row:nth-child(odd){
+    background-color: white;
+}
+
+.mat-header-cell {
+    background-color: white;
+}
+
+.mat-header-cell {
+    min-height: 24px;
+    font-size: medium;
+    font-weight: bold;
+    color:  rgb(0, 0, 0);
+}
+.mat-row:hover > .mat-cell {
+    color:  rgb(255, 83, 83);
+    font-size: medium;
+  }
+
+.mat-cell {
+    min-height: 24px;
+    font-size: medium;
+    color:  rgb(0, 0, 0);
+}
+
+.mat-header-row {
+  width: 100%;
+  min-height: 10px;
+  padding: 0px 0px 0px 4px;
+}
+
+mat-form-field {
+    width: 100%;
+  }
+
+  mat-flat-button{
+    min-height: 24px;
+    font-size: medium;
+    color:  rgb(0, 0, 0);
+}
+
+  label {
+    min-height: 24px;
+    font-size: medium;
+    font-weight: bold;
+    color:  rgb(0, 0, 0);
+}
+
+.espacio {
+    background-color: rgb(255, 255, 255);
+    color: white;
+    padding: 13px;
+  }
+
+  .my-class{
+    width: 100px!important;
+    min-width: unset!important;
+}
+
+input {
+   
+    text-align: start;
+    color: rgb(0, 0, 0);
+}
+
+ mat-label {
+    color: rgb(255, 0, 0);
+  }

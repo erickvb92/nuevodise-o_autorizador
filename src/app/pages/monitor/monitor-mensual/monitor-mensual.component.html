@@ -1,0 +1,31 @@
+
+<div fxLayout="row wrap" >
+  
+  
+    <div *ngFor="let item of totalesOferta;" fxFlex="100" fxFlex.gt-sm="25" fxFlex.sm="50" [@animate]="{value:'*',params:{scale:'.9',delay:'300ms'}}">
+      <mat-card style="padding-bottom:0px !important">
+        <div class="row">
+          <div fxFlex.gt-sm="60">
+          <small class="text-muted">{{item.titulo}}</small>
+            
+          <mat-card-content>
+            <h1 class="m-0 font-normal">{{item.total}}</h1>
+          </mat-card-content>
+          </div>
+          
+          <div fxFlex.gt-sm="40">
+          <mat-chip  [ngStyle]="{'background-color': item.color}" style="height: 50px; width: 50px;"
+          class="icon-chip" 
+          color="primary" 
+          selected="true"><mat-icon (click)="redirectOferta(item.id)" style="font-size: 40px;height: 40px;width: 35px; cursor: pointer;">{{item.icono}}</mat-icon></mat-chip>
+            </div>
+           
+      </div>
+  
+  
+      </mat-card>
+    </div>
+  
+    
+  
+  </div>

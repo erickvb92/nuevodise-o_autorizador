@@ -1,0 +1,465 @@
+.mat-badge-content{font-weight:600;font-size:12px;font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-button,.mat-raised-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button,.mat-fab,.mat-mini-fab{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:14px;font-weight:500 !important;}
+.mat-button-toggle{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-card{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-checkbox{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-table{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-calendar{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-expansion-panel-header{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:15px;font-weight:400 !important}
+.mat-form-field{font-size:inherit;font-weight:400;line-height:1.125;font-family:santec,Roboto, "Helvetica Neue", sans-serif;letter-spacing:normal !important}
+.mat-menu-item{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:14px;font-weight:400 !important}
+.mat-paginator,.mat-paginator-page-size .mat-select-trigger{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:12px !important}
+.mat-radio-button{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-select{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-slide-toggle-content{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-slider-thumb-label-text{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:12px;font-weight:500 !important}
+.mat-stepper-vertical,.mat-stepper-horizontal{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-tab-group{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-tab-label,.mat-tab-link{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:14px;font-weight:500 !important}
+.mat-tooltip{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:10px;padding-top:6px;padding-bottom:6px !important}
+.mat-list-item{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-list-option{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+.mat-list-base .mat-subheader{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:14px;font-weight:500 !important}
+.mat-list-base[dense] .mat-subheader{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:12px;font-weight:500 !important}
+.mat-option{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:16px !important}
+.mat-simple-snackbar{font-family:santec,Roboto, "Helvetica Neue", sans-serif;font-size:14px !important}
+.mat-simple-snackbar-action{font-family:santec, sans-serif;line-height:1;font-size:inherit;font-weight:500 !important}
+.mat-tree{font-family:santec,Roboto, "Helvetica Neue", sans-serif !important}
+
+/* combo */
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){color:#ec0000 !important}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow{color:#ec0000 !important}
+.mat-form-field.mat-focused .mat-form-field-label{color:#404040 !important}
+.mat-form-field.mat-focused .mat-form-field-ripple{background-color:rgba(64, 64, 64, 0.3) !important}
+.mat-form-field-type-mat-native-select.mat-focused:not(.mat-form-field-invalid) .mat-form-field-infix::after{color:#ec0000 !important}
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick{color:#ec0000 !important}
+.mat-select-arrow,
+.mat-icon-button.mat-primary{
+    color:#ec0000 !important;
+}
+
+.mat-select{
+    content: '\f107' !important;
+}
+
+.mat-option{
+    font-size: 14px !important;
+    height: 40px !important;
+}
+
+.mat-select-arrow {
+    opacity: 0 !important;
+    border: 0px !important;
+    margin: 0px 6px !important;
+}
+
+.mat-select-arrow-wrapper {
+    mask: url(../iconos/angle-down-solid.svg) no-repeat 100% 100%;
+    mask-size: cover;
+    background-color: red;
+    background-repeat: no-repeat;
+    color: #ec0000 !important;
+}
+
+mat-label.ng-star-inserted .ng-tns-c75-4 {
+    margin-left: 10px !important;
+}
+
+.mat-placeholder-required{
+    color: #ec0000 !important;
+}
+
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: rgba(64,64,64,.2) !important;
+}
+
+.mat-option:hover:not(.mat-option-disabled), .mat-option:focus:not(.mat-option-disabled) {
+    background: rgba(222,237,242,.4);
+}
+
+.mat-option.mat-active {
+    background: none !important;
+    background: rgba(64,64,64,.2) !important;
+}
+
+.select2{
+    position: relative !important;
+    top: 16px !important;
+    width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+.select2-selection__arrow{
+    mask: url(../iconos/angle-down-solid.svg) no-repeat 100% 100%;
+    mask-size: 12px !important;
+    background-color: red;
+    background-repeat: no-repeat;
+    color: #ec0000 !important;
+    top: -4px !important;
+}
+
+.select2-container .select2-search--inline .select2-search__field{box-sizing:none !important;}
+.select2-search--dropdown .select2-search__field{padding:4px;width:100%;box-sizing:none !important;}
+.select2-container--default .select2-search--dropdown .select2-search__field{border:none !important;}
+.select2-container--classic .select2-search--dropdown .select2-search__field{border:none !important;}
+
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+    border-color: none !important;
+    opacity: 0 !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+
+.select2-search__field:focus{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+
+.select2-results__option--highlighted {
+    background: rgba(222,237,242,.4) !important;
+    color: #000 !important;
+}
+
+.select2-selection__placeholder {
+    font-family: santec,Roboto, "Helvetica Neue", sans-serif !important;
+    color: #7c7c7c !important;
+}
+
+li.select2-results__option[aria-selected=true]{
+    color: #ec0000 !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected=true] {
+    background-color:rgba(64, 64, 64, 0.2) !important;
+    color: #ec0000 !important;
+}
+
+span.select2-selection__rendered {
+    color: #000 !important;
+    font-family: santec,Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.select2-search>input{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+
+.select2-container--focus{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field{
+    border: none !important;
+    border-bottom: 1px solid #949494 !important;
+}
+
+input{
+    border: none !important;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #ec0000;
+
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+    background-color: #ec0000;
+
+}
+
+.mat-radio-button { font-family:santec,Roboto, "Helvetica Neue", sans-serif !important; }
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+    background-color: #ec0000 !important;
+    background-color: rgba(236, 0, 0, .25) !important;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #ec0000 !important;
+}
+
+mat-slide-toggl{
+    font-family:santec,Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-header-row{
+    background: #767676 !important;
+    color: #fff !important;
+    font-weight: bold !important;
+    font-family:santec,Roboto, "Helvetica Neue", sans-serif !important;
+
+}
+
+.mat-header-cell{
+    color: #fff !important;
+    font-family:santec,Roboto, "Helvetica Neue", sans-serif !important;
+    font-weight: bold !important;
+}
+
+.mat-row:nth-child(even){
+    /* background-color: #faf7f7; */
+    font-family:santec,Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-row:nth-child(odd){
+    background-color: #faf7f7;
+    color: black !important;
+    font-family:santec,Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-paginator-page-size{
+    position: relative !important;
+    right: 30% !important;
+}
+
+.mat-paginator-range-actions{
+    position: relative !important;
+    right: 30% !important;
+
+}
+
+.mat-table {
+  background-color: transparent !important;
+}
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  border-radius: 5em !important;
+}
+
+table tr:last-child td {
+  border-bottom:0 solid !important;
+}
+
+.mat-paginator-icon {
+    width: 18px !important;
+    color: #ec0000 !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: rgba(0,0,0,.0) !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    height: 1px;
+    width: 110% !important;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0.25em 0 0.1em 0 !important;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0.6375em 0 !important;
+}
+
+.mat-form-field-flex {
+    width: 110% !important;
+}
+
+.mat-form-field-label {
+    color: rgba(0,0,0,.50);
+}
+
+.mat-checkbox-ripple .mat-ripple-element,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: #ec0000 !important;
+}
+
+button.mat-focus-indicator {
+    width: none !important;
+}
+
+.mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #ec0000;
+}
+
+.mat-dialog-title {
+    font-weight: 500;
+    font-size: 13px;
+    font-family: santec,Roboto, "Helvetica Neue", sans-serif !important;
+    letter-spacing: normal;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #ec0000;
+    border-color: white;
+    border-style: solid;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 0px;
+    border-top-width: 0px;
+}
+
+.mat-tab-label-active:not(.mat-tab-disabled), .mat-tab-label.mat-tab-label-active.cdk-keyboard-focused:not(.mat-tab-disabled){
+    background-color: #e8e8e8;
+    opacity: 1;
+}
+
+/*mat error */
+.mat-input-invalid .mat-input-placeholder {
+    color: #f44336 !important;
+}
+
+.mat-input-invalid .mat-input-ripple {
+    background-color:#f44336 !important;
+}
+
+/*botones radius*/
+.mat-button,.mat-raised-button,.mat-icon-button,.mat-stroked-button,.mat-flat-button{ border-radius: 20px !important }
+
+ /*THEME SANTANDER*/
+ $md-primary-sntndr: (
+    50 : #fae6e6,
+    100 : #f2c1c1,
+    200 : #e99797,
+    300 : #e06d6d,
+    400 : #da4e4e,
+    500 : #d32f2f,
+    600 : #ce2a2a,
+    700 : #c82323,
+    800 : #c21d1d,
+    900 : #b71212,
+    A100 : #ffe7e7,
+    A200 : #ffb4b4,
+    A400 : #ff8181,
+    A700 : #ff6868,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-accent-sntndr: (
+    50 : #e6e8f3,
+    100 : #c1c5e2,
+    200 : #989fcf,
+    300 : #6e79bc,
+    400 : #4f5cad,
+    500 : #303f9f,
+    600 : #2b3997,
+    700 : #24318d,
+    800 : #1e2983,
+    900 : #131b72,
+    A100 : #a8aeff,
+    A200 : #757eff,
+    A400 : #424fff,
+    A700 : #2937ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-warn-sntndr: (
+    50 : #e0f0f2,
+    100 : #b3dadd,
+    200 : #80c1c7,
+    300 : #4da8b1,
+    400 : #2696a0,
+    500 : #f44336,
+    600 : #007b87,
+    700 : #00707c,
+    800 : #006672,
+    900 : #005360,
+    A100 : #90edff,
+    A200 : #5de5ff,
+    // A200 : #f44336,
+    A400 : #2adcff,
+    A700 : #11d8ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+// @import '~@angular/material/theming';
+@mixin form-crea-linea-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $background-color: mat-color($background, A700);
+}
+@mixin sgv-iconMenu-theme($theme) {
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    app-menu{ 
+        svg-icon.bg-icon path,
+        svg-icon.bg-icon circle,
+        svg-icon.bg-icon line  {
+            stroke : mat-color($foreground, icons) !important;            
+        }
+    }
+    #sidenav .menu-item:hover{
+        background: mat-color($background, hover) !important;
+    }
+}
+
+@mixin sgv-iconsError-theme($theme) {
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    app-error404{ 
+        h4 {
+            color : mat-color($foreground, icons) !important;  
+        }
+        svg-icon path,
+        svg-icon circle,
+        svg g,
+        svg-icon line  {           
+            fill : mat-color($foreground, icons) !important;
+        }
+    }
+}
+
+@mixin custom-components-theme($theme) {
+    @include sgv-iconMenu-theme($theme);
+    @include sgv-iconsError-theme($theme);
+    @include form-crea-linea-component-theme($theme);
+}

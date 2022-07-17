@@ -1,0 +1,137 @@
+<form autocomplete="off" [formGroup]="form">
+    <div class="row">
+        <div class="col-12 col-md-6 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Nombre / Razón Social</mat-label>
+              <input matInput formControlName="nombreRazonSocial" >
+              <mat-error *ngIf="campoNoValido('nombreRazonSocial')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field class="w-90">
+              <mat-label>RFC / NIF</mat-label>
+              <mat-select disableRipple formControlName="rfc">
+                 <mat-option value="1">uno</mat-option>
+                 <mat-option value="2">dos</mat-option>
+              </mat-select>
+              <mat-error *ngIf="campoNoValido('rfc')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Num Prov</mat-label>
+              <input matInput formControlName="numProv">
+              <mat-error *ngIf="campoNoValido('numProv')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>CURP</mat-label>
+              <input matInput formControlName="curp" >
+              <mat-error *ngIf="campoNoValido('curp')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Nacionalidad</mat-label>
+              <input matInput formControlName="nacionalidad">
+              <mat-error *ngIf="campoNoValido('nacionalidad')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>C.P.</mat-label>
+              <input matInput formControlName="cp">
+              <mat-error *ngIf="campoNoValido('cp')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field class="w-90">
+              <mat-label>Colonía</mat-label>
+              <mat-select disableRipple formControlName="colonia">
+                 <mat-option value="1">uno</mat-option>
+                 <mat-option value="2">dos</mat-option>
+              </mat-select>
+              <mat-error *ngIf="campoNoValido('colonia')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Calle</mat-label>
+              <input matInput formControlName="calle">
+              <mat-error *ngIf="campoNoValido('calle')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <div class="row">
+              <div class="col-6">
+                 <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>No. ext</mat-label>
+                    <input matInput formControlName="noExt">
+                    <mat-error *ngIf="campoNoValido('noExt')">Campo obligatorio</mat-error>
+                 </mat-form-field>
+              </div>
+              <div class="col-6">
+                 <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>No. int</mat-label>
+                    <input matInput formControlName="noInt">
+                    <mat-error *ngIf="campoNoValido('noInt')">Campo obligatorio</mat-error>
+                 </mat-form-field>
+              </div>
+           </div>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Delegación / Mpio</mat-label>
+              <input matInput formControlName="delegacionMunicipio">
+              <mat-error *ngIf="campoNoValido('delegacionMunicipio')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Estado</mat-label>
+              <input matInput formControlName="estado">
+              <mat-error *ngIf="campoNoValido('estado')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>País</mat-label>
+              <input matInput formControlName="pais">
+              <mat-error *ngIf="campoNoValido('pais')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>País de Residencia</mat-label>
+              <input matInput formControlName="paisResidencia">
+              <mat-error *ngIf="campoNoValido('paisResidencia')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <div class="col-12 col-md-3">
+           <mat-form-field class="w-90">
+              <mat-label>Es Benef Efect Del Cobro</mat-label>
+              <mat-select disableRipple formControlName="esBenefEfect">
+                 <mat-option value="1">uno</mat-option>
+                 <mat-option value="2">dos</mat-option>
+              </mat-select>
+              <mat-error *ngIf="campoNoValido('esBenefEfect')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Concepto de Pago</mat-label>
+              <input matInput formControlName="conceptoPago">
+              <mat-error *ngIf="campoNoValido('conceptoPago')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Descripción Concepto</mat-label>
+              <input matInput formControlName="descripcionConcepto">
+              <mat-error *ngIf="campoNoValido('descripcionConcepto')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+    </div>
+</form>

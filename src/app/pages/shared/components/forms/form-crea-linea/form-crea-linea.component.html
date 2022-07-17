@@ -1,0 +1,101 @@
+<ng-container [formGroup]="formCreacion">
+   <section class="form-container mat-app-background">
+   <div formGroupName="general" class="row mb-4">
+      <div class="col-12 col-md-3">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>Ejercicio</mat-label>
+         <input matInput formControlName="ejercicio" >
+         <mat-error *ngIf="campoNoValido('general', 'ejercicio')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-3">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>Periodo</mat-label>
+         <input matInput formControlName="periodo" >
+         <mat-error *ngIf="campoNoValido('general', 'periodo')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-3">
+         <mat-form-field class="w-90">
+         <mat-label>Tipo de Constancia</mat-label>
+         <mat-select disableRipple formControlName="tipoConstancia">
+            <mat-option *ngFor="let constancia of tiposConstanciaList" [value]="constancia.id">{{constancia.tipo}}</mat-option>
+         </mat-select>
+         <mat-error *ngIf="campoNoValido('general', 'tipoConstancia')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-3">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>Folio Interno</mat-label>
+         <input matInput formControlName="folioInterno" >
+         <mat-error *ngIf="campoNoValido('general', 'folioInterno')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-3">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>Clave Retención</mat-label>
+         <input matInput formControlName="claveRetencion" >
+         <mat-error *ngIf="campoNoValido('general', 'claveRetencion')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-3">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>Desc. Retención</mat-label>
+         <input matInput formControlName="descRetencion" >
+         <mat-error *ngIf="campoNoValido('general', 'descRetencion')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+      <div class="col-12 col-md-6">
+         <mat-form-field appearance="fill" class="w-100">
+         <mat-label>A</mat-label>
+         <input matInput formControlName="aField" >
+         <mat-error *ngIf="campoNoValido('general', 'aField')">Campo obligatorio</mat-error>
+         </mat-form-field>
+      </div>
+   </div>
+   <!-- Panel datos del emisor -->
+   <mat-accordion *ngIf="emisorFormGroup">
+      <mat-expansion-panel class="mb-4" [ngClass]="{'modal-open': saveInmemory}">
+         <mat-expansion-panel-header>
+         <mat-panel-title>
+            Datos del emisor
+         </mat-panel-title>
+         </mat-expansion-panel-header>
+         <app-form-datos-emisor formGroupName="datosEmisor" [instituciones]="institucionesList"></app-form-datos-emisor>
+      </mat-expansion-panel>
+   </mat-accordion>
+   <!-- End panel datos del emisor -->
+
+      <!-- Panel datos del receptor -->
+      <mat-accordion *ngIf="receptorFormGroup">
+         <mat-expansion-panel class="mb-4" [ngClass]="{'modal-open': saveInmemory}">
+         <mat-expansion-panel-header>
+            <mat-panel-title>
+               Datos del receptor
+            </mat-panel-title>
+         </mat-expansion-panel-header>
+         <app-form-datos-receptor formGroupName="datosReceptor"></app-form-datos-receptor>
+         </mat-expansion-panel>
+      </mat-accordion>
+      <!-- End panel datos del receptor -->
+
+      <!-- Panel datos de operación -->
+      <mat-accordion *ngIf="operacionFormGroup">
+         <mat-expansion-panel class="mb-5" [ngClass]="{'modal-open': saveInmemory}">
+         <mat-expansion-panel-header>
+            <mat-panel-title>
+               Datos Operación
+            </mat-panel-title>
+         </mat-expansion-panel-header>
+         <app-form-datos-operacion formGroupName="datosOperacion"></app-form-datos-operacion>
+         </mat-expansion-panel>
+      </mat-accordion>
+      <!-- End panel datos de operación -->
+      <div *ngIf="!saveInmemory" class="row">
+         <div class="col-12 wrap-buttons d-flex justify-content-end">
+         <button type="button" (click)="crearEnLinea()" class="btn btn-primary btn-sm">Crear</button>
+         <button type="button" (click)="cancelar()" class="btn btn-generic btn-sm">Cancelar</button>
+         </div>
+      </div>
+   </section>
+ </ng-container>

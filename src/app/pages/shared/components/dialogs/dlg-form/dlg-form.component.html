@@ -1,0 +1,41 @@
+<div class="wrap-float-close">
+  <button>
+    <mat-icon>cancel</mat-icon>
+  </button>
+</div>
+<div class="wrap-logo">
+  <img src="assets/iconos/flamaroja.png" alt="logo santander" />
+</div>
+<h1 mat-dialog-title>{{data.header}}</h1>
+<hr>
+<mat-dialog-content>
+    <ng-template [cdkPortalOutlet]="portal" cdkPortalOutlet ></ng-template>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-app-background">
+    <div class="float-end mt-3" *ngIf="!this.data?.no_show_save; else showCancel">
+        <button mat-stroked-button mat-dialog-close> Cancelar </button>
+        <button
+            *ngIf="data?.constancia?.isSello; else content"
+            matTooltip="Timbre activo, se reemplazará al modificar"
+            mat-raised-button color="primary"
+            (click)="onChildFormSubmit()"
+            >
+            <mat-icon>receipt</mat-icon>
+            Guardar y generar nuevo timbre
+        </button>
+        <ng-template #content>
+            <button
+                mat-raised-button
+                color="primary"
+                (click)="onChildFormSubmit()">
+                Guardar
+            </button>
+        </ng-template>
+    </div>
+    <ng-template #showCancel>
+      <div class="float-end mt-3">
+        <button mat-stroked-button mat-dialog-close> Cerrar </button>
+      </div>
+    </ng-template>
+
+</mat-dialog-actions>

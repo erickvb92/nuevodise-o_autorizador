@@ -1,0 +1,109 @@
+<div class="container mr-top-40">
+  <app-form-busqueda-constancias #formBusqueda [paginator]="paginator" (cleanSelection)="cleanSelection()" [tipoConsulta]="tipoConsulta"></app-form-busqueda-constancias>
+  <app-form-filtro-tabla
+    #filterTable
+    [_dataSource]="formBusqueda.constanciasList"
+    [_paginator]="paginator"
+    [_rowsFilter]="['tipo','institucion','ejercicioFiscal','rfc','nombre','cod_cliente','cuenta','participacion_cliente','folio','estatus']"
+    (changeEventInput)="onValueChangeInput($event)"
+    *ngIf="formBusqueda.constanciasList.data.length > 0">
+  </app-form-filtro-tabla>
+  <div *ngIf="formBusqueda.constanciasList.data.length > 0" class="row">
+    <div class="col-md-12 text-align-r">
+      <button type="button" mat-stroked-button color="primary" (click)="exportarEditar()">
+        <mat-icon>{{iconExportar}}</mat-icon>{{labelBtnExportar}}
+      </button>
+    </div>
+  </div>
+  <div class="container-scroll mat-elevation-z8 mt-3">
+    <table mat-table [dataSource]="formBusqueda.constanciasList" multiTemplateDataRows>
+      <caption class="visually-hidden">LISTADO CCFF PARA MODIFICACIÓN DE DATOS</caption>
+      <ng-container matColumnDef="id">
+        <th scope="col" mat-header-cell *matHeaderCellDef >
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [disabled]="disabledExportar || formBusqueda.constanciasList.data.length === 0"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let constancia_modCf">
+          <mat-checkbox (click)="$event.stopPropagation()" 
+            [disabled]="constancia_modCf.disabled || (disabledExportar && !constancia_modCf.disabled)"
+            (change)="$event ? selection.toggle(constancia_modCf) : null"
+            [checked]="selection.isSelected(constancia_modCf)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="tipo">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Tipo de constancia</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.tipo}} </td>
+      </ng-container>
+      <ng-container matColumnDef="institucion">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Institución</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.institucion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="ejercicioFiscal">
+        <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Ejercicio fiscal</th>
+        <td mat-cell *matCellDef="let constancia_modCf" class="text-center"> {{constancia_modCf.ejercicioFiscal}} </td>
+      </ng-container>
+      <ng-container matColumnDef="rfc">
+        <th scope="col" mat-header-cell *matHeaderCellDef>RFC cliente</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.rfc}} </td>
+      </ng-container>
+      <ng-container matColumnDef="nombre">
+          <th scope="col" mat-header-cell *matHeaderCellDef>Nombre cliente</th>
+          <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.nombre}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cod_cliente">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Código cliente</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.cod_cliente}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cuenta">
+          <th scope="col" mat-header-cell *matHeaderCellDef>Número de cuenta/proveedor</th>
+          <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.cuenta}} </td>
+      </ng-container>
+      <ng-container matColumnDef="participacion_cliente">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Participación del cliente</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.participacion_cliente}} </td>
+      </ng-container>
+      <ng-container matColumnDef="folio">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Folio constancia</th>
+        <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.folio}} </td>
+      </ng-container>
+      <ng-container matColumnDef="estatus">
+          <th scope="col" mat-header-cell *matHeaderCellDef>Estatus</th>
+          <td mat-cell *matCellDef="let constancia_modCf"> {{constancia_modCf.estatus}} </td>
+      </ng-container>
+      <ng-container matColumnDef="editar">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let constancia_modCf">
+          <button mat-mini-fab color="basic" (click)="dlgEditarConstancia(constancia_modCf)" 
+            [disabled]="constancia_modCf.disabled || (!disabledExportar && !constancia_modCf.disabled)"><mat-icon>edit</mat-icon></button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="seleccion">
+        <td mat-footer-cell *matFooterCellDef colspan="10">
+            <small *ngIf="selection.selected.length>0">
+              Seleccionados: {{selection.selected.length}} de {{ formBusqueda.constanciasList.data.length}}
+            </small>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;" [ngClass]="{'cell-disabled': element.disabled}" [matTooltip]="element.disabled ? element.estatus : ''" matTooltipClass="tooltip-blocked"></tr>
+      <tr mat-footer-row *matFooterRowDef="['seleccion']"></tr>
+    </table>
+    <mat-paginator showFirstLastButtons="true" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+  <div *ngIf="formBusqueda.constanciasList.data.length > 0" class="row mt-3 mb-2">
+    <div class="col-md-10 text-align-r">
+        <button type="button" mat-raised-button color="primary" (click)="generarDescarga('txt')">TXT</button>
+    </div>
+    <div class="col-md-1 text-align-r">
+        <button type="button" mat-raised-button color="primary" (click)="generarDescarga('xlsx')">XLSX</button>
+    </div>
+    <div class="col-md-1 text-align-r">
+        <button type="button" mat-raised-button color="primary" (click)="generarDescarga('csv')">CSV</button>
+    </div>
+  </div>
+</div>

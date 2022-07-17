@@ -1,0 +1,73 @@
+<nav mat-tab-nav-bar ngClass="tabs" aria-label="menu-principal">
+    <div>
+        <a mat-tab-link routerLink="administracion/catalogos" routerLinkActive="active-link" (click)="lineMenu($event, 'catalogos')"
+            class="sub-menu-dsp">Carga de Cátalogos</a>
+        <label></label>
+    </div>
+    <div>
+        <a mat-tab-link routerLink="administracion/parametros" routerLinkActive="active-link" (click)="lineMenu($event, 'param')"
+            class="sub-menu-dsp">Párametros</a>
+        <label></label>
+    </div>
+</nav>
+
+<div #submenuCancelacion [hidden]="!menuParam">
+    <nav mat-tab-nav-bar ngClass="tabs" aria-label="subMenu-cancelacion">
+        <div>
+            <a  mat-tab-link routerLink="administracion/paramPerfil" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp">Perfilamiento</a>
+            <label></label>
+        </div>
+        <div>
+            <a mat-tab-link routerLink="administracion/paramInterface" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp">Validador de interfaces</a>
+            <label></label>
+        </div>
+        <div>
+            <a mat-tab-link routerLink="administracion/paramEquivalencias" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp">Catalogo de equivalencias</a>
+            <label></label>
+        </div>
+        <div>
+            <a mat-tab-link routerLink="administracion/paramFechas" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp">Fechas de procesamiento</a>
+            <label></label>
+        </div>
+        <div>
+            <a mat-tab-link routerLink="administracion/paramConstancias" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp">Catálogos de tipo de constancia</a>
+            <label></label>
+        </div>
+        <div>
+            <a mat-tab-link routerLink="administracion/paramSemaforo" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+                class="sub-menu-dsp"> Semáforos de procesamiento
+            </a>
+            <label></label>
+        </div>
+
+    </nav>
+</div>
+
+<div #submenuCatalogos [hidden]="!menuCatalogos">
+  <nav mat-tab-nav-bar ngClass="tabs" aria-label="subMenu-catalogos">
+    <div>
+      <a  mat-tab-link routerLink="administracion/catalogos/logotipos" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+        class="sub-menu-dsp">Logotipos
+      </a>
+      <label></label>
+    </div>
+    <div>
+      <a  mat-tab-link routerLink="administracion/catalogos/clacones" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+        class="sub-menu-dsp">Parametría de Clacones
+      </a>
+      <label></label>
+    </div>
+    <div>
+      <a  mat-tab-link routerLink="administracion/catalogos/coacreditados" routerLinkActive="active-link" (click)="lineSubMenu($event)"
+        class="sub-menu-dsp">Coacreditados
+      </a>
+      <label></label>
+    </div>
+  </nav>
+</div>
+

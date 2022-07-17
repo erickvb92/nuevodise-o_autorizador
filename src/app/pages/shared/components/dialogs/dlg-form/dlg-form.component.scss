@@ -1,0 +1,18 @@
+.mat-dialog-actions {display: unset !important;}
+
+.wrap-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  img {
+    vertical-align: bottom;
+    max-width: 25px;
+  }
+}
+
+.wrap-float-close {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}

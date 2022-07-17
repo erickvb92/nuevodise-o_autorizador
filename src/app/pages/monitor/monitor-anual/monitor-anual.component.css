@@ -1,0 +1,17 @@
+.main-container {
+   padding: 1.5rem 2rem;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+   padding: .5375em 0 !important;
+}
+
+.wrap-button, .wrap-buttons {
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+
+.wrap-buttons button:not(:first-child) {
+   margin-left: 1rem !important;
+}

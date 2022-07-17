@@ -1,0 +1,44 @@
+.main-container {
+  padding: 1.5rem 2rem;
+  .title {
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+
+  }
+  .wrap-load {
+    .buttons-list {
+      button {
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+        ::ng-deep .mat-button-wrapper {
+          display: flex;
+          place-items: center;
+          .mat-icon {
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+    .wrap-preview {
+      img {
+        max-width: 200px;
+        vertical-align: bottom;
+      }
+      p {
+        margin-bottom: 0.25rem;
+        font-size: 0.9rem;
+      }
+    }
+  }
+  .wrap-bitacora {
+    margin-top: 5rem !important;
+    img {
+      max-width: 100px;
+      vertical-align: bottom;
+      margin: 0.5rem 0;
+    }
+  }
+}

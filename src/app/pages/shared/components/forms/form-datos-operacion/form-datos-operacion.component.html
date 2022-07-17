@@ -1,0 +1,85 @@
+<form autocomplete="off" [formGroup]="form">
+    <div class="row row-datos-operacion">
+        <div class="col-12">
+           <span>ISR</span>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Base Retención Impuesto</mat-label>
+              <input matInput formControlName="baseRetencionIsr">
+              <mat-error *ngIf="campoNoValido('baseRetencionIsr')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Impuesto Retenido</mat-label>
+              <input matInput formControlName="impuestoRetenidoIsr">
+              <mat-error *ngIf="campoNoValido('impuestoRetenidoIsr')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Tipo Retención Pago</mat-label>
+              <input matInput formControlName="tipoRetencionIsr">
+              <mat-error *ngIf="campoNoValido('tipoRetencionIsr')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <div class="col-12">
+           <span>IVA</span>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Base Retención Impuesto</mat-label>
+              <input matInput formControlName="baseRetencionIva">
+              <mat-error *ngIf="campoNoValido('baseRetencionIva')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Impuesto Retenido</mat-label>
+              <input matInput formControlName="impuestoRetenidoIva">
+              <mat-error *ngIf="campoNoValido('impuestoRetenidoIva')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Tipo Retención Pago</mat-label>
+              <input matInput formControlName="tipoRetencionIva">
+              <mat-error *ngIf="campoNoValido('tipoRetencionIva')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <div class="col-12">
+           <span>TOTALES</span>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Monto Total de la Operación</mat-label>
+              <input matInput formControlName="montoTotalOperacion">
+              <mat-error *ngIf="campoNoValido('montoTotalOperacion')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Monto Total Gravado</mat-label>
+              <input matInput formControlName="montoTotalGravado">
+              <mat-error *ngIf="campoNoValido('montoTotalGravado')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Monto Total Externo</mat-label>
+              <input matInput formControlName="montoTotalExento">
+              <mat-error *ngIf="campoNoValido('montoTotalExento')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Monto Total Referido</mat-label>
+              <input matInput formControlName="montoTotalRetenido">
+              <mat-error *ngIf="campoNoValido('montoTotalRetenido')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,102 @@
+<div class="container mr-top-40">
+    <app-form-busqueda-constancias #formBusqueda [tipoConsulta]="tipoConsulta" [paginator]="paginator" (cleanSelection)="cleanSelection()"></app-form-busqueda-constancias>
+    <app-form-filtro-tabla
+      #filterTable
+      [_dataSource]="formBusqueda.constanciasList"
+      [_paginator]="paginator"
+      [_rowsFilter]="['tipo','institucion','ejercicioFiscal','rfc','nombre','cod_cliente','cuenta','participacion_cliente','folio','estatus']"
+      (changeEventInput)="onValueChangeInput($event)"
+      *ngIf="formBusqueda.constanciasList.data.length > 0">
+    </app-form-filtro-tabla>
+    <div class="container-scroll mat-elevation-z8 mt-3">
+        <table mat-table [dataSource]="formBusqueda.constanciasList">
+            <caption class="visually-hidden">LISTADO BLOQUEOS DE CCFF</caption>
+            <ng-container matColumnDef="id">
+                <th scope="col" mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [disabled]="formBusqueda.constanciasList.data.length === 0"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let constancia">
+                    <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(constancia) : null"
+                        [checked]="selection.isSelected(constancia)">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="tipo">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Tipo de constancia</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.tipo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="institucion">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Institución</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.institucion}} </td>
+            </ng-container>
+            <ng-container matColumnDef="ejercicioFiscal">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Ejercicio fiscal</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.ejercicioFiscal}} </td>
+            </ng-container>
+            <ng-container matColumnDef="rfc">
+                <th scope="col" mat-header-cell *matHeaderCellDef>RFC cliente</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.rfc}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Nombre cliente</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.nombre}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cod_cliente">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Código cliente</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.cod_cliente}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cuenta">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Número de cuenta/proveedor</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.cuenta}} </td>
+            </ng-container>
+            <ng-container matColumnDef="participacion_cliente">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Participación del cliente</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.participacion_cliente}} </td>
+            </ng-container>
+            <ng-container matColumnDef="folio">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Folio constancia</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.folio}} </td>
+            </ng-container>
+            <ng-container matColumnDef="estatus">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Estatus</th>
+                <td mat-cell *matCellDef="let constancia"> {{constancia.estatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="bloquearDesbloquear">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Bloquear / Desbloquear</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center">
+                    <mat-slide-toggle 
+                        [checked]="constancia.bloqueo" 
+                        (change)="bloquearDesbloquearConstancia(constancia, $event)"></mat-slide-toggle>
+                </td>
+            </ng-container>
+           
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator showFirstLastButtons="true" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    <div *ngIf="formBusqueda.constanciasList.data.length > 0" class="row mt-2">
+        <div class="col-md-10 text-align-r">
+            <button type="button" mat-raised-button color="primary" (click)="generarDescarga('txt')">TXT</button>
+        </div>
+        <div class="col-md-1 text-align-r">
+            <button type="button" mat-raised-button color="primary" (click)="generarDescarga('xlsx')">XLSX</button>
+        </div>
+        <div class="col-md-1 text-align-r">
+            <button type="button" mat-raised-button color="primary" (click)="generarDescarga('csv')">CSV</button>
+        </div>
+    </div>
+    <div *ngIf="formBusqueda.constanciasList.data.length > 0" class="row mt-4 mb-2">
+        <div class="col-md-10 text-align-r">
+            <button type="button" mat-raised-button color="primary" (click)="bloquearDesbloquear(true)">Bloqueo masivo</button>
+        </div>
+        <div class="col-md-2 text-align-r">
+            <button type="button" mat-raised-button color="basic" (click)="bloquearDesbloquear(false)">Desbloqueo masivo</button>
+        </div>
+    </div>
+</div>

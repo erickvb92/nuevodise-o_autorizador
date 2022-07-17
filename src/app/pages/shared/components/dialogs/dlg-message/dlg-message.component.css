@@ -1,0 +1,24 @@
+mat-dialog-container,
+mat-dialog-content{
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.wrap-title {
+  text-align: center;
+}
+
+.wrap-title img {
+  vertical-align: bottom;
+  max-width: 50px;
+}
+
+.spinner-wrapper svg {
+  width: 80px !important;
+}
+
+.spinner-wrapper p {
+  width: 80%;
+  font-weight: 500;
+  margin-bottom: 0;
+}

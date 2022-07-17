@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop] = "false">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    [ngClass]="{hidden: !(isHandset$ | async)}"
+    fixedInViewport = "false"
+    position="end"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'over'"
+    >
+    <mat-toolbar>
+        <mat-icon aria-hiddenx="false" (click)="drawer.toggle()">close</mat-icon>
+    </mat-toolbar>
+    <app-content-cart
+      #contentCart
+      [constancyList]="currentConst"
+      [action]="action"
+      (deleteItem)="onDeleteItemStorage($event)"
+      (removeSession)="onRemoveSession($event)"
+      (searchOutput)="onSearchConstancies($event)"
+      (listToProcess)="onProcessList($event)"
+      (processItem)="onProcessItemStorage($event)">
+    </app-content-cart>
+
+  </mat-sidenav>
+</mat-sidenav-container>
+
+<button
+  *ngIf="!drawer.opened"
+  mat-mini-fab
+  color="primary"
+  [matMenuTriggerFor]="menu"
+  [ngClass]="{'active': totalConstancies > 0}">
+  <!-- <mat-icon>content_paste_go</mat-icon> -->
+  <!-- <mat-icon>access_time</mat-icon> -->
+  <mat-icon>apps</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="drawer.toggle(); showData('constancias-modificadas')">
+    <span>CF Modificadas</span>
+  </button>
+  <button mat-menu-item (click)="drawer.toggle(); showData('constancias-canceladas')">
+    <span>CF Canceladas</span>
+  </button>
+</mat-menu>

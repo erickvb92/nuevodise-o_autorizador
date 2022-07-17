@@ -1,0 +1,125 @@
+<form [formGroup]="form">
+  <section class="form-container row mb-4">
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Contrato</mat-label>
+      <input matInput formControlName="contrato" >
+      <mat-error *ngIf="campoNoValido('contrato')">
+        {{getError(contratoField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Sub-contrato</mat-label>
+      <input matInput formControlName="subcontrato" >
+      <mat-error *ngIf="campoNoValido('subcontrato')">
+        {{getError(subcontratoField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-90">
+      <mat-label>Tipo solicitante</mat-label>
+      <mat-select disableRipple formControlName="idSolicitante">
+          <mat-option *ngFor="let tipo of tipoCoacreditadosList" [value]="tipo?.id">{{tipo?.clave}} - {{tipo?.descripcion}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('idSolicitante')">
+        {{getError(tipoSolicitanteField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Nombre completo</mat-label>
+      <input matInput formControlName="nombreCompleto" >
+      <mat-error *ngIf="campoNoValido('nombreCompleto')">
+        {{getError(nombreField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>RFC</mat-label>
+      <input matInput formControlName="rfc" >
+      <mat-error *ngIf="campoNoValido('rfc')">
+        {{getError(rfcField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-90">
+      <mat-label>% de Participacion</mat-label>
+      <mat-select disableRipple formControlName="porcentaje">
+          <mat-option *ngFor="let tipo of tipoPorcentajesList" [value]="tipo?.value">{{tipo?.value}}%</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('porcentaje')">
+        {{getError(porcentajeField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-8">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Calle</mat-label>
+      <input matInput formControlName="calle" >
+      <mat-error *ngIf="campoNoValido('calle')">
+        {{getError(calleField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-2">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>No. ext</mat-label>
+      <input matInput formControlName="noExt" >
+      <mat-error *ngIf="campoNoValido('noExt')">
+        {{getError(noExtField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-2">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>No. int</mat-label>
+      <input matInput formControlName="noInt" >
+      <mat-error *ngIf="campoNoValido('noInt')">
+        {{getError(noIntField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-8">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Colonia</mat-label>
+      <input matInput formControlName="colonia" >
+      <mat-error *ngIf="campoNoValido('colonia')">
+        {{getError(coloniaField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>C.P.</mat-label>
+      <input matInput formControlName="cp" >
+      <mat-error *ngIf="campoNoValido('cp')">
+        {{getError(cpField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Delegación/Mpio</mat-label>
+      <input matInput formControlName="delegacion" >
+      <mat-error *ngIf="campoNoValido('delegacion')">
+        {{getError(delegacionField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Estado</mat-label>
+      <input matInput formControlName="estado" >
+      <mat-error *ngIf="campoNoValido('estado')">
+        {{getError(estadoField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+  </section>
+</form>

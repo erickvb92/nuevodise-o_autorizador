@@ -1,0 +1,14 @@
+<nav mat-tab-nav-bar ngClass="tabs" aria-label="menu-principal">
+    <div>
+        <a mat-tab-link routerLink="/datConsulta" routerLinkActive="active-link" (click)="lineMenu($event, 'none')"
+            class="sub-menu-dsp">Consulta de Datos</a>
+        <label></label>
+    </div>
+    <div>
+        <a mat-tab-link routerLink="/datAnalitica" routerLinkActive="active-link" (click)="lineMenu($event, 'param')"
+            class="sub-menu-dsp">Analitica
+        </a>
+        <label></label>
+    </div>  
+</nav>
+

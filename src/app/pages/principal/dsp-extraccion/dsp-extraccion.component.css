@@ -1,0 +1,67 @@
+.container-scroll {
+    height: auto;
+    max-height: 500px;
+    width: 1400px;
+    max-width: 100%;
+    overflow: auto;
+}
+
+table {
+    width: 1580px !important;
+}
+
+.mat-column-id {
+    width: 70px !important;
+}
+
+.mat-column-tipo {
+    width: 120px !important;
+}
+
+.mat-column-institucion {
+    width: 100px !important;
+}
+
+.mat-column-ejercicioFiscal {
+    width: 100px !important;
+}
+
+.mat-column-folio {
+    width: 120px !important;
+}
+
+.mat-column-nombre {
+    width: 120px !important;
+}
+
+.mat-column-cod_cliente {
+    width: 120px !important;
+}
+
+.mat-column-participacion_cliente {
+    width: 150px !important;
+}
+
+.mat-column-cuenta {
+    width: 170px !important;
+}
+
+.mat-column-rfc {
+    width: 120px !important;
+}
+
+.mat-column-estatus {
+    width: 100px !important;
+}
+
+.mat-column-xml {
+    width: 80px !important;
+}
+
+.mat-column-xml {
+    width: 100px !important;
+}
+
+.mat-column-detalle {
+    width: 60px !important;
+}

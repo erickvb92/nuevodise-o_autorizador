@@ -1,0 +1,46 @@
+<form [formGroup]="filters" (submit)="searchFilters()">
+  <div class="row mb-5  wrap-search">
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Número de Contrato</mat-label>
+        <input matInput formControlName="contrato" >
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-100">
+        <mat-label>Código de Cliente</mat-label>
+        <input matInput formControlName="codigoCliente" >
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field appearance="fill" class="w-95">
+        <mat-label>RFC</mat-label>
+        <input matInput formControlName="rfc" >
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-90">
+        <mat-label>Institución</mat-label>
+        <mat-select disableRipple formControlName="institucion">
+          <mat-option *ngFor="let institucion of instituciones" [value]="institucion">
+            {{institucion.descInstitucion}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-md-4">
+      <mat-form-field class="w-90">
+        <mat-label>Ejercicio Fiscal</mat-label>
+        <mat-select disableRipple formControlName="ejercicioFiscal">
+          <mat-option *ngFor="let ejercicio of ejercicioFiscalList" [value]="ejercicio.id">
+            {{ejercicio.ejercicio}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-12 wrap-buttons-search mt-5">
+      <button type="submit" mat-raised-button color="primary" [disabled]="inputsDisabled">Consultar</button>
+      <button type="button" mat-raised-button color="basic" [disabled]="inputsDisabled" (click)="limpiarConsulta()">Limpiar formato</button>
+    </div>
+  </div>
+</form>

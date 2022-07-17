@@ -1,0 +1,32 @@
+.form-container {
+  padding: 1.5rem 2rem;
+  overflow-x: hidden;
+}
+
+::ng-deep .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .5375em 0 !important;
+}
+
+.wrap-buttons button:not(:first-child){
+  margin-left: 1rem !important;
+}
+
+/* ::ng-deep .mat-expansion-panel-body,
+.mat-expansion-panel-header.mat-expanded:focus,
+.mat-expansion-panel-header.mat-expanded:hover {
+  background-color: #fafafa !important;
+} */
+
+/* ::ng-deep .mat-expansion-panel.modal-open .mat-expansion-panel-body,
+.mat-expansion-panel.modal-open  .mat-expansion-panel-header.mat-expanded:focus,
+.mat-expansion-panel.modal-open  .mat-expansion-panel-header.mat-expanded:hover {
+  background-color: #fff !important;
+} */
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 16px !important;
+}
+
+/* .mat-expansion-panel.modal-open .mat-expansion-panel-header {
+  background-color: #fff;
+} */

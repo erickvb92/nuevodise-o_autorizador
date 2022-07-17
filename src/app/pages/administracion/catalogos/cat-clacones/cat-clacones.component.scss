@@ -1,0 +1,37 @@
+.main-container {
+  padding: 1.5rem 2rem;
+  .wrap-bitacora {
+    max-height: 550px;
+    // width: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    table {
+      width: 100% !important;
+    }
+  }
+  .wrap-buttons {
+    text-align: right;
+    button {
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.mat-column-divisa {
+  flex: 0 0 20%;
+}
+
+.mat-column-acciones {
+  flex: 0 0 2%;
+  text-align: center;
+}
+
+.mat-column-acciones .wrap-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+}

@@ -1,0 +1,124 @@
+<div class="container mr-top-40">
+    <app-form-busqueda-constancias #formBusqueda  [paginator]="paginator" [tipoConsulta]="tipoConsulta" (cleanSelection)="cleanSelection()"></app-form-busqueda-constancias>
+    <app-form-filtro-tabla
+      #filterTable
+      [_dataSource]="formBusqueda.constanciasList"
+      [_paginator]="paginator"
+      [_rowsFilter]="['tipo','institucion','ejercicioFiscal','rfc','nombre','cod_cliente','cuenta','participacion_cliente','folio','estatus']"
+      (changeEventInput)="onValueChangeInput($event)"
+      *ngIf="formBusqueda.constanciasList.data.length > 0">
+    </app-form-filtro-tabla>
+    <div class="container-scroll mat-elevation-z8 mt-3">
+        <table mat-table [dataSource]="formBusqueda.constanciasList" multiTemplateDataRows>
+            <caption class="visually-hidden">LISTADO CANCELACIONES CCFF EN LINEA</caption>
+            <ng-container matColumnDef="id">
+                <th scope="col" mat-header-cell *matHeaderCellDef>
+                  <mat-checkbox (change)="$event ? masterToggle() : null"
+                            [checked]="selection.hasValue() && isAllSelected()"
+                            [disabled]="formBusqueda.constanciasList.data.length === 0"
+                            [indeterminate]="selection.hasValue() && !isAllSelected()">
+                  </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let constancia">
+                  <mat-checkbox (click)="$event.stopPropagation()" [disabled]="constancia.disabled"
+                            (change)="$event ? checkConstancia(constancia) : null"
+                            [checked]="selection.isSelected(constancia)"
+                            [indeterminate]="selection.hasValue() && !isAllSellosSelected(constancia)">
+                  </mat-checkbox>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="tipo">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Tipo de constancia</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.tipo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="institucion">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Institución</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.institucion}} </td>
+            </ng-container>
+            <ng-container matColumnDef="ejercicioFiscal">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Ejercicio fiscal</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.ejercicioFiscal}} </td>
+            </ng-container>
+            <ng-container matColumnDef="rfc">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">RFC cliente</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.rfc}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Nombre cliente</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.nombre}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cod_cliente">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Código cliente</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.cod_cliente}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cuenta">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Número de cuenta/proveedor</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.cuenta}} </td>
+            </ng-container>
+            <ng-container matColumnDef="participacion_cliente">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Participación del cliente</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.participacion_cliente}} </td>
+            </ng-container>
+            <ng-container matColumnDef="folio">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Folio constancia</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.folio}} </td>
+            </ng-container>
+            <ng-container matColumnDef="estatus">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Estatus</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> {{constancia.estatus}} </td>
+            </ng-container>
+            <ng-container matColumnDef="cancelar">
+                <th scope="col" mat-header-cell *matHeaderCellDef>Motivo cancelación</th>
+                <td mat-cell *matCellDef="let constancia">
+                    <mat-select [(ngModel)]="constancia.idMotivo" disableRipple placeholder="Seleccionar Motivo" [disabled]="constancia.disabled">
+                        <mat-option *ngFor="let motivo of motivosCancelarList" [value]="motivo.id">
+                          {{motivo.motivo}}
+                        </mat-option>
+                    </mat-select>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="comentario">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Comentario</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center">
+                    <button mat-icon-button (click)="addComment(constancia)" [disabled]="constancia.disabled"><mat-icon>insert_comment</mat-icon></button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="detalle">
+                <th scope="col" mat-header-cell *matHeaderCellDef class="text-center">Detalle</th>
+                <td mat-cell *matCellDef="let constancia" class="text-center"> 
+                  <button mat-icon-button (click)="verDetalle(constancia.id)" class="btnDetalle" id="plus{{constancia.id}}" [disabled]="constancia.disabled"><mat-icon>add_circle_outline</mat-icon></button> 
+                </td>
+            </ng-container>
+      
+            <ng-container matColumnDef="expandedDetail">
+                <td mat-cell *matCellDef="let constancia" [attr.colspan]="displayedColumns.length">
+                    <div class="divSellos d-none" id="detalle{{constancia.id}}">
+                        <br *ngIf="constancia.sellosCancelar.length > 0">
+                        <div class="row">
+                            <div class="col-md-3" *ngFor="let sello of constancia.sellosCancelar">
+                                <mat-checkbox [disabled]="sello.disabled"
+                                    (change)="$event ? checkSello($event, sello) : null"
+                                    [checked]="sello.cancelar">
+                                </mat-checkbox>
+                                {{sello.sello.nombre}}
+                            </div>
+                        </div>
+                        <br *ngIf="constancia.sellosCancelar.length > 0">
+                    </div>
+                </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let element; columns: displayedColumns;" [ngClass]="{'cell-disabled': element.disabled}"></tr>
+            <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detalle-tr"></tr>
+        </table>
+        <mat-paginator showFirstLastButtons="true" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+    <div *ngIf="formBusqueda.constanciasList.data.length > 0" class="row mt-4 mb-2">
+        <div class="col-md-12 text-align-r">
+            <button type="button" mat-raised-button color="primary" (click)="cancelar(false)">Agregar</button>
+            &nbsp;
+            <button type="button" mat-raised-button color="basic" (click)="cancelar(true)">Cancelar</button>
+        </div>
+    </div>
+</div>

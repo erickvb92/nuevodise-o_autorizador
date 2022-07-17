@@ -1,0 +1,34 @@
+.wrap-title {
+    text-align: center;
+}
+
+.wrap-title img {
+    vertical-align: bottom;
+    max-width: 30px;
+    margin-bottom: 0;
+}
+
+svg-icon {
+    vertical-align: unset !important;
+    stroke: red;
+}
+  
+.button-wrapper {
+    width: 100px;
+    max-width: 100px;
+    display: flex;
+    place-items: center;
+}
+  
+.button-wrapper svg-icon {
+    margin-right: 0.5rem;
+}
+
+.spinner-wrapper {
+    width: 350px !important;
+}
+
+.spinner-wrapper p {
+    font-weight: 500;
+    margin-bottom: 20px;
+}

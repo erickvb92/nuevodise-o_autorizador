@@ -1,0 +1,10 @@
+<mat-tab-group (selectedIndexChange)="onSelectIndexTab($event)">
+  <mat-tab *ngFor="let pdf of pdfs" label="{{pdf.nombreDocumento}}">
+    <iframe class="iframe" [src]="safeSrcViewPdf(pdf.contenido)" title="PDF viewer"></iframe>
+  </mat-tab>
+</mat-tab-group>
+<div mat-dialog-actions>
+  <button type="button" mat-raised-button color="basic" (click)="close()">Cerrar</button>
+  &nbsp;
+  <button type="button" mat-raised-button color="primary" (click)="descargarPDF()">Descargar</button>
+</div>

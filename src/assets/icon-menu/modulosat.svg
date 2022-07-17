@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.272" height="29.526" viewBox="0 0 31.272 29.526">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #ec0b18;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.07px;
+      }
+    </style>
+  </defs>
+  <g id="Grupo_875" data-name="Grupo 875" transform="translate(-31.203 -734.331)">
+    <g id="Fiduciario_Iconos_SuperNetFiduciario_ConsultaBancos_290121" transform="translate(31.738 734.866)">
+      <path id="Trazado_141" data-name="Trazado 141" class="cls-1" d="M8.376,15.648H4.263c-.321,0-.514.345-.514.689V34.174H2.014c-.321,0-.514.345-.514.689v1.379c0,.431.257.689.514.689H31.188c.321,0,.514-.345.514-.689V34.864c0-.431-.257-.689-.514-.689H29.453V16.338c0-.431-.257-.689-.514-.689H24.955m1.028-3.1a12.846,12.846,0,0,0-18.764,0m4.113,21.628V25.558h4.755v8.617Zm10.539-8.617v8.617H17.18V25.558Z" transform="translate(-1.5 -8.475)"/>
+      <line id="Línea_163" data-name="Línea 163" class="cls-1" x2="24.171" transform="translate(3.016 12.86)"/>
+      <line id="Línea_164" data-name="Línea 164" class="cls-1" y2="9.909" transform="translate(6.876 2.951)"/>
+      <line id="Línea_165" data-name="Línea 165" class="cls-1" y2="9.909" transform="translate(23.327 2.951)"/>
+      <line id="Línea_166" data-name="Línea 166" class="cls-1" x1="17.967" transform="translate(6.118 25.785)"/>
+      <path id="Trazado_142" data-name="Trazado 142" class="cls-2" d="M25.75,14.813a.924.924,0,0,0-.172-.517l-.862-1.551c-.086-.086-.086-.259-.172-.345v.086a1.472,1.472,0,0,0,0,1.206l.689,1.206a1.035,1.035,0,0,1,0,1.206v.086a.448.448,0,0,0-.172-.345l-.6-1.206-.431-.689c-.086-.086-.086-.259-.172-.345v.086a1.035,1.035,0,0,0,0,1.206h0l.689,1.206a1.472,1.472,0,0,1,0,1.206V17.4a.448.448,0,0,0-.172-.345L23.51,15.5a1.623,1.623,0,0,1-.172-.689c-.948.259-1.637.776-1.637,1.379,0,.862,1.293,1.551,2.844,1.551s2.844-.689,2.844-1.551C27.387,15.588,26.7,15.071,25.75,14.813Z" transform="translate(-9.442 -9.018)"/>
+    </g>
+  </g>
+</svg>

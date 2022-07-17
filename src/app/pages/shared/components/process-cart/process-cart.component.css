@@ -1,0 +1,30 @@
+.mat-toolbar.mat-primary {
+  background-color: #fafafa;
+}
+
+.mat-toolbar-single-row {
+  justify-content: end;
+}
+
+.sidenav-container  .sidenav {
+    width: 525px;
+    position: fixed;
+    z-index: 9;
+}
+
+.mat-toolbar {
+  background: transparent;
+}
+
+.mat-toolbar .mat-icon {
+  cursor: pointer;
+}
+
+.mat-drawer-container {
+  z-index: inherit !important;
+}
+
+
+button.active {
+  color: red;
+}

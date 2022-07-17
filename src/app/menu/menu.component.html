@@ -1,0 +1,135 @@
+<mat-toolbar id="mainToolbar">
+    <mat-icon (click)="onToolbarMenuToggle()" id="toolbarMenu">subject</mat-icon>
+    <img src="../assets/iconos/logosantander.png" alt="logo" class="logo">
+    <span class="toolbar-spacer"></span>
+    <app-process-cart></app-process-cart>
+    <mat-icon class="toolbar-icon" matBadge="{{notification}}" matBadgePosition="after" matBadgeColor="accent">
+        notifications_none
+    </mat-icon>
+    <span class="usuario">
+        <label>Hola: {{user}}</label>
+    </span>
+    <svg-icon class="" src="../assets/icon-menu/System.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+</mat-toolbar>
+
+<mat-sidenav-container id="sidenavContainer" fullscreen>
+    <mat-sidenav mode="side" #sidenav id="sidenav" [class.menu-open]="isMenuOpen" [class.menu-close]="!isMenuOpen"
+        opened>
+        <mat-list id="menus">
+
+            <mat-list-item class="mb-1" (click)="changeImg('dsp')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-dsp')"></span>
+                <button class="menu-item" mat-flat-button [routerLink]="'/principal'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-dsp')"
+                        src="../assets/icon-menu/disp_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-dsp')"
+                        src="../assets/icon-menu/principal.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-dsp')}">Principal</label>
+                </button>
+            </mat-list-item>
+
+            <mat-list-item class="mb-1" (click)="changeImg('mon')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-mon')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/monitor'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-mon')"
+                        src="../assets/icon-menu/admin.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-mon')"
+                        src="../assets/icon-menu/admin.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-mon')}">Catalogo</label>
+                </button>
+            </mat-list-item>
+<!--
+            <mat-list-item class="mb-1" (click)="changeImg('sat')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-sat')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/sat'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-sat')"
+                        src="../assets/icon-menu/admin_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-sat')"
+                        src="../assets/icon-menu/admin.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-sat')}">Catalogo</label>
+                </button>
+            </mat-list-item>
+
+            
+            <mat-list-item class="mb-1" (click)="changeImg('adm')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-adm')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/administracion'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-adm')"
+                        src="../assets/icon-menu/admin_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-adm')"
+                        src="../assets/icon-menu/admin.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-adm')}">ADMINISTRACIÓN</label>
+                </button>
+            </mat-list-item>
+
+
+            <mat-list-item class="mb-1" (click)="changeImg('dat')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-dat')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/datos'">
+                    <svg-icon class="icon-menu bg-icon" [hidden]="!mapMenu.get('img-dat')"
+                        src="../assets/icon-menu/cons_bg.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-dat')"
+                        src="../assets/icon-menu/consulta.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-dat')}">CONSULTA DE DATOS</label>
+                </button>
+            </mat-list-item>
+
+           
+
+            <mat-list-item class="mb-1" (click)="changeImg('sat')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-sat')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/sat'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-sat')"
+                        src="../assets/icon-menu/mod_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-sat')"
+                        src="../assets/icon-menu/modulosat.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-sat')}">MODULO SAT</label>
+                </button>
+            </mat-list-item>
+
+            <mat-list-item class="mb-1" (click)="changeImg('tto')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-tto')"></span>
+                <button class="menu-item" mat-flat-button [routerLink]="'/tto'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-tto')"
+                        src="../assets/icon-menu/trat_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-tto')"
+                        src="../assets/icon-menu/functional.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-tto')}">TRATAMIENTO DE INF</label>
+                </button>
+            </mat-list-item>
+            <mat-list-item class="mb-1" (click)="changeImg('mtto')">
+                <span class="menu-selector menu-item-select" [hidden]="!mapMenu.get('spn-mtto')"></span>
+                <button class="menu-item " mat-flat-button [routerLink]="'/mtto'">
+                    <svg-icon  class="icon-menu bg-icon"  [hidden]="!mapMenu.get('img-mtto')"
+                        src="../assets/icon-menu/mtt_bg.svg" [svgStyle]="{ 'width.px':32 }"></svg-icon>
+                    <svg-icon class="icon-menu item_select_menu" [hidden]="!mapMenu.get('spn-mtto')"
+                        src="../assets/icon-menu/mantenimiento.svg" [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label class="font" [ngClass]="{'requerido' : mapMenu.get('spn-mtto')}">MANTENIMIENTO DE
+                        INFO</label>
+                </button>
+            </mat-list-item>
+-->
+
+            <mat-list-item class="mb-1"  class="separator">
+                <span class="menu-item " mat-flat-button>
+                    <mat-slide-toggle
+                        class="menu-item"
+                        [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)"
+                        *ngIf="isMenuOpen"><mat-icon>invert_colors</mat-icon></mat-slide-toggle>
+                </span>
+            </mat-list-item>
+            <mat-list-item class="mb-1" class="separator bottomStick">
+                <button class="menu-item " mat-flat-button [routerLink]="'/botones'">
+                    <svg-icon class="icon-menu cerrar_sesion " src="../assets/icon-menu/sign-out-alt-solid.svg"
+                        [svgStyle]="{ 'width.px':32}"></svg-icon>
+                    <label [hidden]="!mapMenu.get('lbl-cerrar')" class="font">CERRAR SESION</label>
+                </button>
+            </mat-list-item>
+        </mat-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content [ngStyle]="{ 'margin-left.px': contentMargin }">
+        <app-submenu [modulo]="modulo"></app-submenu>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

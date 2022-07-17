@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.439" height="37.598" viewBox="0 0 31.439 37.598">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #ec0b18;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.073px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        fill: #ec0b18;
+      }
+    </style>
+  </defs>
+  <g id="Grupo_876" data-name="Grupo 876" transform="translate(1128.965 -1460.373)">
+    <path id="Trazado_143" data-name="Trazado 143" class="cls-1" d="M7.41,27.107V6.9A5.117,5.117,0,0,1,9.147,3.086,6.322,6.322,0,0,1,13.375,1.5h24.4V32.648c0,2.97-2.674,5.378-5.973,5.378H7.41Z" transform="translate(-1135.838 1459.409)"/>
+    <line id="Línea_167" data-name="Línea 167" class="cls-2" x2="20.774" transform="translate(-1123.659 1465.786)"/>
+    <line id="Línea_168" data-name="Línea 168" class="cls-2" x2="5.111" transform="translate(-1109.773 1488.396)"/>
+    <path id="Trazado_144" data-name="Trazado 144" class="cls-3" d="M18.647,33.775a4.093,4.093,0,0,1-2.137-.75l.5-.878a3.517,3.517,0,0,0,2.01.67c1.078,0,1.681-.389,1.681-1.072,0-.844-1.105-1.125-2.164-1.594-.958-.422-1.862-.971-1.862-2.184a2.056,2.056,0,0,1,1.969-2.01V24.33h1.105v1.608a3.818,3.818,0,0,1,1.849.717l-.543.844a3.182,3.182,0,0,0-1.862-.61c-.857,0-1.4.362-1.4,1.018s.857,1.058,1.8,1.447c1.092.455,2.278.971,2.278,2.217s-.75,1.969-2.11,2.17V35.5H18.647Z" transform="translate(-1136.566 1455.667)"/>
+    <line id="Línea_169" data-name="Línea 169" class="cls-2" x2="5.111" transform="translate(-1109.773 1472.395)"/>
+    <circle id="Elipse_27" data-name="Elipse 27" class="cls-2" cx="1.701" cy="1.701" r="1.701" transform="translate(-1118.977 1470.58)"/>
+    <line id="Línea_170" data-name="Línea 170" class="cls-2" x2="5.111" transform="translate(-1109.773 1480.205)"/>
+  </g>
+</svg>

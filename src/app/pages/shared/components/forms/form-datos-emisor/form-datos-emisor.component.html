@@ -1,0 +1,35 @@
+<form autocomplete="off" [formGroup]="form">
+    <div class="row">
+        <div class="col-12 col-md-6">
+           <mat-form-field class="w-90">
+              <mat-label>Institución</mat-label>
+              <mat-select disableRipple formControlName="institucion">
+                 <mat-option *ngFor="let institucion of institucionesList" [value]="institucion.id">{{institucion.descInstitucion}}</mat-option>
+              </mat-select>
+              <mat-error *ngIf="campoNoValido('institucion')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3 ">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>RFC</mat-label>
+              <input matInput formControlName="rfc">
+              <mat-error *ngIf="campoNoValido('rfc')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="w-100 d-none d-md-block"></div>
+        <div class="col-12 col-md-6">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Regimen Fiscal del Emisor</mat-label>
+              <input matInput formControlName="regimenFiscal" >
+              <mat-error *ngIf="campoNoValido('regimenFiscal')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+        <div class="col-12 col-md-3">
+           <mat-form-field appearance="fill" class="w-100">
+              <mat-label>Lugar de Expedición</mat-label>
+              <input matInput formControlName="lugarExpedicion" >
+              <mat-error *ngIf="campoNoValido('lugarExpedicion')">Campo obligatorio</mat-error>
+           </mat-form-field>
+        </div>
+    </div>
+</form>

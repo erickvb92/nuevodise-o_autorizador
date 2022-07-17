@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.176" height="37.073" viewBox="0 0 31.176 37.073">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #ec0b18;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.073px;
+      }
+    </style>
+  </defs>
+  <g id="Fiduciario_Iconos_SuperNetFiduciario_ConsultaInstrucciones_290121" transform="translate(-6.874 -0.964)">
+    <path id="Trazado_145" data-name="Trazado 145" class="cls-1" d="M37.513,32.2c0,2.927-2.65,5.3-5.92,5.3H7.41V6.8c0-2.924,2.645-5.3,5.911-5.3H37.5Z"/>
+    <line id="Línea_171" data-name="Línea 171" class="cls-1" x2="19.671" transform="translate(12.156 7.243)"/>
+    <path id="Trazado_146" data-name="Trazado 146" class="cls-1" d="M24.2,16.18l1.691.9,3.326-4.371" transform="translate(-2.215 -2.67)"/>
+    <path id="Trazado_147" data-name="Trazado 147" class="cls-1" d="M24.2,27.157l1.691.9,3.326-4.379" transform="translate(-2.215 -5.284)"/>
+    <circle id="Elipse_28" data-name="Elipse 28" class="cls-1" cx="2.401" cy="2.401" r="2.401" transform="translate(12.163 11.054)"/>
+    <circle id="Elipse_29" data-name="Elipse 29" class="cls-1" cx="2.401" cy="2.401" r="2.401" transform="translate(12.163 19.178)"/>
+    <path id="Trazado_148" data-name="Trazado 148" class="cls-1" d="M24.2,37.7l1.691.9,3.326-4.379" transform="translate(-2.215 -7.795)"/>
+    <circle id="Elipse_30" data-name="Elipse 30" class="cls-1" cx="2.401" cy="2.401" r="2.401" transform="translate(12.163 27.202)"/>
+  </g>
+</svg>

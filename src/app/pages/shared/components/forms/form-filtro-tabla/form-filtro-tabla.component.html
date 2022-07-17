@@ -1,0 +1,10 @@
+<ng-container [formGroup]="searchForm" autocomplete="off">
+    <mat-form-field appearance="legacy">
+        <mat-label>Filtrar: </mat-label>
+        <input  
+            formControlName="filter"
+            matInput
+            placeholder="Filtrar resultados">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+</ng-container>

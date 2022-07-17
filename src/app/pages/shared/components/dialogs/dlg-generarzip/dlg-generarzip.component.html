@@ -1,0 +1,24 @@
+<div class="wrap-title d-flex justify-content-center mb-4">
+    <img src="assets/iconos/flamaroja.png" alt="logo- santander"  class="logo-stndr" mat-dialog-title/>
+</div>
+<mat-dialog-content class="spinner-wrapper mb-4 d-flex align-items-center flex-column">
+    <p class="text-center"> ¿Cómo deseas recibir tus formatos? </p>
+    <button type="button" class="btn btn-generic" (click)="generaZipPdf()">
+        <span class="button-wrapper">
+            <svg-icon src="../assets/iconos/minipdf.svg"></svg-icon>PDF
+        </span>
+    </button>
+    <button type="button" class="btn btn-generic" (click)="generaZipXml()">
+        <span class="button-wrapper">
+            <svg-icon src="../assets/iconos/minixmls.svg"></svg-icon>XML
+        </span>
+    </button>
+    <button type="button" class="btn btn-generic" (click)="generaZip()">
+        <span class="button-wrapper">
+            <svg-icon src="../assets/iconos/miniambos.svg"></svg-icon>PDF / XML
+        </span>
+    </button>    
+</mat-dialog-content>
+<mat-dialog-actions class="d-flex align-items-center flex-column">
+    <button type="button" mat-raised-button color="primary" (click)="close()">Cerrar</button>
+</mat-dialog-actions>

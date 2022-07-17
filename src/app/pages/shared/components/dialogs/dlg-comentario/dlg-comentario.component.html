@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Comentario</h1>
+<form [formGroup]="comentarioForm" (ngSubmit)="agregar()">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Comentario</mat-label>
+      <textarea matInput placeholder="Escribe un comentario..." formControlName="comentario" aria-label="comentario"></textarea>
+      <mat-error *ngIf="campoNoValido('comentario')">Comentario requerido</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+      <button type="button" mat-raised-button color="basic" (click)="close()">Cerrar</button>
+      &nbsp;
+      <button type="submit" mat-raised-button color="primary">Agregar</button>
+  </div>
+</form>

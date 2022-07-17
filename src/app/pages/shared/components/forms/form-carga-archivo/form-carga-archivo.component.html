@@ -1,0 +1,93 @@
+<form [formGroup]="form">
+    <div class="row">
+        <div class="col-md-3">
+            <mat-form-field>
+                <mat-label>Tipo de Constancia</mat-label>
+                <mat-select disableRipple formControlName="tipoConstancia">
+                    <mat-option *ngFor="let tipoConst of tiposConstanciaList" [value]="tipoConst.id">
+                        {{tipoConst.tipo}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="campoNoValido('tipoConstancia')">Tipo de Constancia requerida</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-3">
+            <mat-form-field>
+                <mat-label>Ejercicio Fiscal</mat-label>
+                <mat-select disableRipple formControlName="ejercicioFiscal">
+                    <mat-option *ngFor="let ejercicioF of ejerciciosFiscalesList" [value]="ejercicioF.id">
+                        {{ejercicioF.ejercicio}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="campoNoValido('ejercicioFiscal')">Ejercicio Fiscal requerido</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-10">
+            <mat-card>
+                <mat-card-subtitle>{{tituloCarga}}</mat-card-subtitle>
+                <mat-card-title>Adjuntar archivo.</mat-card-title>
+                <mat-card-content>
+                    <div *ngIf="form.pending" class="spinner-wrapper">
+                        <mat-progress-spinner
+                            [color]="color"
+                            [mode]="mode">
+                        </mat-progress-spinner>
+                    </div>
+                    <mat-error *ngIf="campoNoValido('sourceFile')">
+                    <app-message [message]="fileErrorMsg"></app-message>
+                    </mat-error>
+                    <input
+                    hidden
+                    name="file"
+                    id="file"
+                    class="input-file"
+                    type="file"
+                    accept=".txt"
+                    #fileInput
+                    formControlName="file"
+                    aria-label="documento_adjunto"
+                    (change)="validarDoc($event)">
+                    <!-- <input type="hidden" name="hdnFileInput" formControlName="file" /> -->
+                    <!-- <input type="file"
+                        id="file"
+                        class="input-file"
+                        formControlName="file"
+                        accept=".txt"
+                        (change)="validarDoc($event)"> -->
+                    <mat-list  *ngIf="form.valid" role="list">
+                    <mat-list-item role="listitem">
+                        <mat-icon mat-list-icon>attach_file</mat-icon>{{sourceFileName}}</mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+                <mat-card-actions>
+
+                  <button
+                    (click)="fileInput.click()"
+                    [disabled]="tipoConstanciaField?.invalid || ejercicioFiscalField?.invalid"
+                    class="btn btn btn-generic">
+                    Cargar Doc.
+                  </button>
+                  <!-- <label
+                      class="btn btn btn-generic"
+                      for="file">
+                        Cargar Doc.
+                    </label> -->
+                    <button
+                        [disabled]=" form.invalid || form.pending"
+                        (click)="submit()"
+                        class="btn btn btn-generic" >Subir <mat-icon>arrow_upward</mat-icon></button>
+                    <button
+                        (click)="deleteFile()"
+                        [disabled]=" form.pending"
+                        class="btn btn btn-generic">Borrar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</form>
+
+
+
+

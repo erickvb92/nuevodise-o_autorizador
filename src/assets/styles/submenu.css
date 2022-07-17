@@ -1,0 +1,27 @@
+@font-face {
+  font-family: santec;
+  src: url(../Fonts/SantanderText-Regular.otf) format("opentype");
+}
+
+
+.sub-menu-dsp {
+  font-family: santec, Roboto, "Helvetica Neue", sans-serif !important
+}
+
+.sub-menu-dsp:hover {
+  color: #ec0000 !important;
+  font-weight: bold !important;
+  font-family: santec, "Roboto", "Helvetica Neue", sans-serif !important;
+}
+
+.line-submenu {
+  background: #ec0000;
+  width: 35px;
+  height: 3px;
+  margin-left: 40%;
+  top: -10px;
+  position: relative;
+  display: flex;
+}
+
+

@@ -1,0 +1,119 @@
+<section class="main-container">
+  <div class="row mb-5">
+    <div class="col-12 wrap-search">
+      <div class="col-md-3">
+        <mat-form-field>
+          <mat-label>Tipo de Institución</mat-label>
+          <mat-select disableRipple [formControl]="searchField">
+            <mat-option *ngFor="let institucion of instituciones" [value]="institucion">
+              {{institucion.descInstitucion}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <!-- CARGA DE ARCHIVO -->
+  <div class="row mb-5">
+    <div class="col-12 mb-3">
+      <h4 class="title">Adjuntar Archivos</h4>
+    </div>
+    <div class="col-12 wrap-load">
+      <mat-card>
+        <form [formGroup]="form">
+          <div class="row">
+            <div class="col-12 buttons-list">
+              <button
+                (click)="fileInput.click()"
+                type="button"
+                mat-stroked-button
+                [disabled]="!institucionSelected?.id"
+                color="primary">
+                Cargar Documento
+              </button>
+              <button
+                type="button"
+                mat-stroked-button
+                [disabled]="!fileField?.valid"
+                (click)="uploadFileDummy()"
+                color="primary">
+                Subir
+                <mat-icon>file_upload</mat-icon>
+              </button>
+              <button
+                type="button"
+                mat-stroked-button
+                [disabled]="!fileField?.value"
+                (click)="deleteFile()"
+                button color="primary">
+                Borrar</button>
+            </div>
+            <input
+            hidden
+            name="file"
+            type="file"
+            #fileInput
+            id="file"
+            accept="image/* "
+            (change)="validatedFile($event)"
+            aria-label="documento">
+            <input type="hidden" name="hdnFileInput" formControlName="sourceFile" />
+          </div>
+        <div class="row">
+          <mat-error *ngIf="campoNoValido('sourceFile')" class="mt-3">
+            <app-message [message]="fileErrorMsg"></app-message>
+          </mat-error>
+
+          <div *ngIf="form?.pending" class="spinner-wrapper">
+            <mat-progress-spinner
+              [color]="color"
+              [mode]="mode">
+            </mat-progress-spinner>
+          </div>
+
+          <div class="col-12 mt-5 wrap-preview" *ngIf="imgPreview">
+            <img class="mb-3" [src]="imgPreview" alt="vista previa" />
+            <p>Nombre: {{fileField?.value.name}}</p>
+            <p>Tamaño: {{formatBytes(fileField?.value.size)}}</p>
+          </div>
+
+        </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  <!-- END CARGA DE ARCHIVO -->
+  <!-- BITÁCORA DE UPLOADS -->
+  <div class="mat-elevation-z8 mt-5 wrap-bitacora">
+    <table mat-table [dataSource]="bitacoraDataSource">
+      <caption class="visually-hidden">BITÁCORA DE CARGA DE LOGOTIPOS</caption>
+      <ng-container matColumnDef="logo">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Logo</th>
+        <td mat-cell *matCellDef="let institucion">
+          <img [src]="institucion?.img" alt="logo" />
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="fecha">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Fecha de modificación</th>
+        <td mat-cell *matCellDef="let institucion"> {{institucion?.fechaModificacion | date}} </td>
+      </ng-container>
+      <ng-container matColumnDef="institucion">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Institución</th>
+        <td mat-cell *matCellDef="let institucion"> {{institucion?.institucion}} </td>
+      </ng-container>
+      <ng-container matColumnDef="usuario_update">
+        <th scope="col" mat-header-cell *matHeaderCellDef>Nombre de quien modifico</th>
+        <td mat-cell *matCellDef="let institucion"> {{institucion.usuario}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell text-center" [attr.colspan]="displayedColumns.length">
+          Ningún registro encontrado
+        </td>
+      </tr>
+    </table>
+  </div>
+  <!-- END BITÁCORA DE UPLOADS -->
+</section>

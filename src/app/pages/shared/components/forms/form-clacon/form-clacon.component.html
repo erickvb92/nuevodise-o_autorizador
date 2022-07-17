@@ -1,0 +1,113 @@
+<form [formGroup]="form">
+  <section class="form-container row mb-4">
+    <div class="col-12">
+      <mat-form-field class="w-90">
+      <mat-label>Clave</mat-label>
+      <mat-select disableRipple formControlName="clave">
+          <mat-option *ngFor="let clave of clavesClaconesList" [value]="clave?.id">{{clave?.nombreClave}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('clave')">
+        {{getError(claveField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="w-90">
+      <mat-label>SubClave</mat-label>
+      <mat-select disableRipple formControlName="subclave">
+          <mat-option *ngFor="let sub of subclavesClaconesList" [value]="sub?.id">{{sub?.nombreSub}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('subclave')">
+        {{getError(subclaveField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Código</mat-label>
+      <input matInput formControlName="codigo" >
+      <mat-error *ngIf="campoNoValido('codigo')">
+        {{getError(codigoField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Indicador A</mat-label>
+      <input matInput formControlName="indicadorA" >
+      <mat-error *ngIf="campoNoValido('indicadorA')">
+        {{getError(indicadorAField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Indicador B</mat-label>
+      <input matInput formControlName="indicadorB" >
+      <mat-error *ngIf="campoNoValido('indicadorB')">
+        {{getError(indicadorBField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="w-90">
+      <mat-label>Nombre</mat-label>
+      <mat-select disableRipple formControlName="nombre">
+          <mat-option *ngFor="let item of nombreClaconesList" [value]="item?.id">{{item?.nombre}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('nombre')">
+        {{getError(nombreField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="w-90">
+      <mat-label>Origen</mat-label>
+      <mat-select disableRipple formControlName="origen">
+          <mat-option *ngFor="let origen of origenClaconesList" [value]="origen?.id">{{origen?.nombreOrigen}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('origen')">
+        {{getError(origenField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Complemento</mat-label>
+      <input matInput formControlName="complemento" >
+      <mat-error *ngIf="campoNoValido('complemento')">
+        {{getError(complementoField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field class="w-90">
+      <mat-label>Divisa</mat-label>
+      <mat-select disableRipple formControlName="divisa">
+          <mat-option *ngFor="let divisa of divisasClaconesList" [value]="divisa?.id">{{divisa?.nombreDivisa}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="campoNoValido('divisa')">
+        {{getError(divisaField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Descripción</mat-label>
+      <input matInput formControlName="descripcion" >
+      <mat-error *ngIf="campoNoValido('descripcion')">
+        {{getError(descripcionField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-12">
+      <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Detalle</mat-label>
+      <input matInput formControlName="detalle" >
+      <mat-error *ngIf="campoNoValido('detalle')">
+        {{getError(detalleField?.errors)}}
+      </mat-error>
+      </mat-form-field>
+    </div>
+  </section>
+</form>
